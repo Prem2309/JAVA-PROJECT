@@ -1,0 +1,50 @@
+<!DOCTYPE html>
+<html>
+<head>
+    <title>List Students</title>
+    <style>
+        body {
+            font-family: Arial, sans-serif;
+            padding: 40px;
+            background: #f8f9fa;
+        }
+        h2 {
+            text-align: center;
+        }
+        ul {
+            list-style-type: none;
+            max-width: 600px;
+            margin: auto;
+            padding: 0;
+        }
+        li {
+            background: white;
+            padding: 15px;
+            border-radius: 8px;
+            margin-bottom: 10px;
+            box-shadow: 0 2px 5px rgba(0,0,0,0.1);
+        }
+    </style>
+</head>
+<body>
+<h2>Student List</h2>
+<ul id="studentList"></ul>
+
+<script>
+    fetch('/students')
+        .then(res => res.json())
+        .then(data => {
+            const list = document.getElementById('studentList');
+            data.forEach(s => {
+                const li = document.createElement('li');
+                li.textContent = `${s.name} (${s.roll}) - ${s.course}`;
+                list.appendChild(li);
+            });
+        })
+        .catch(() => {
+            const list = document.getElementById('studentList');
+            list.innerHTML = "<li>Error loading students. Make sure the server is running and /students is configured properly.</li>";
+        });
+</script>
+</body>
+</html>

@@ -1,0 +1,42 @@
+<!DOCTYPE html>
+<html>
+<head>
+    <title>Remove Student</title>
+    <style>
+        body {
+            background-color: #fff3f3;
+            font-family: Arial, sans-serif;
+            padding: 40px;
+        }
+        form {
+            max-width: 400px;
+            margin: auto;
+            background: white;
+            padding: 25px;
+            border-radius: 10px;
+            box-shadow: 0 0 10px rgba(0,0,0,0.1);
+        }
+        input, button {
+            display: block;
+            width: 100%;
+            margin-top: 10px;
+            padding: 10px;
+            border-radius: 8px;
+            border: 1px solid #ccc;
+        }
+        button {
+            background-color: #dc3545;
+            color: white;
+            border: none;
+            font-weight: bold;
+        }
+    </style>
+</head>
+<body>
+<form method="POST" action="/remove-student">
+    <h2>Remove Student</h2>
+    <input type="text" name="roll" placeholder="Enter Roll Number to Remove" required />
+    <button type="submit">Remove Student</button>
+</form>
+</body>
+</html>
